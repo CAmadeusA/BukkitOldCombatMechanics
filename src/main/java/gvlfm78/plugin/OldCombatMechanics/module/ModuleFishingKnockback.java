@@ -98,12 +98,12 @@ public class ModuleFishingKnockback extends Module {
 
 			return;
 		}
+		// Because entities can take damage when less than 10 nodamageticks, for some weird reason. #BlameMojang.
 		if (living.getNoDamageTicks() <= 10) {			
 			living.damage(damage);
 			Location loc = living.getLocation();
 			float yamount = (((rodder.getLocation().getPitch() * -1) + 180));
 			Vector yvec = new Vector(0, yamount, 0).multiply(0.00555555555).multiply(2.5);
-			//rodder.sendMessage("Rod Y settings: min: 2.245, max: 2.55 and is currently" + yvec.getY());
 			if (yvec.getY() > 1.95) {
 				yvec = new Vector(0, 1.95, 0);
 			}
