@@ -20,3 +20,4 @@ builds
 target
 META-INF
 dependency-reduced-pom.xml
+.DS_Store
