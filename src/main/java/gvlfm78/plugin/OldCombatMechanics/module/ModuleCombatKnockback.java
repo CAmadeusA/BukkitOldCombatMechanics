@@ -18,10 +18,7 @@ public class ModuleCombatKnockback extends Module {
 	public void onCombat(EntityDamageByEntityEvent event) {
 		if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
 			Player damaged = (Player) event.getEntity();
-			damaged.getVelocity().multiply(new Vector(1.22, 1, 1.22));
-			if (damaged.getVelocity().getY() < 0) {
-				damaged.setVelocity(new Vector(damaged.getVelocity().getX(), 0, damaged.getVelocity().getZ()));
-			}
+			damaged.getVelocity().multiply(1.22);
 		}
 	}
 

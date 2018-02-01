@@ -61,12 +61,14 @@ public class ModuleGoldenApple extends Module {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.HIGH)
+	@EventHandler
 	public void onItemConsume(PlayerItemConsumeEvent e) {
 
 		if (e.getItem() == null || e.getItem().getType() != Material.GOLDEN_APPLE) return;
 
 		if (!isEnabled(e.getPlayer().getWorld()) || !isSettingEnabled("old-potion-effects")) return;
+		
+		if (e.isCancelled()) return;
 
 		e.setCancelled(true);
 

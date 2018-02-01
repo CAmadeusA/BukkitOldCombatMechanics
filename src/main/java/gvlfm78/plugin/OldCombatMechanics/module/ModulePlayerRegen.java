@@ -22,7 +22,7 @@ public class ModulePlayerRegen extends Module {
         super(plugin, "old-player-regen");
     }
 
-	@EventHandler(priority = EventPriority.HIGHEST)
+	@EventHandler
     public void onRegen(EntityRegainHealthEvent e) {
 
         if (e.getEntityType() != EntityType.PLAYER || e.getRegainReason() != EntityRegainHealthEvent.RegainReason.SATIATED)
@@ -31,6 +31,7 @@ public class ModulePlayerRegen extends Module {
         final Player p = (Player) e.getEntity();
 
         if (!isEnabled(p.getWorld())) return;
+        if (e.isCancelled()) return; 
 
         e.setCancelled(true);
 
